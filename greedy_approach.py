@@ -1,6 +1,6 @@
 import hashcode_shared
 
-FILEPATH = "/datasets/f_libraries_of_the_world.txt"
+FILEPATH = "datasets/f_libraries_of_the_world.txt"
 
 NUM_DAYS = 0  
 NUM_BOOKS = 0
