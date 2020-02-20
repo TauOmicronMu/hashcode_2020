@@ -55,13 +55,6 @@ def setup():
             library = Library(i//2, library_books, throughput, signup_time)
             LIBRARIES.append(library)
 
-    books_to_take = 20000
-    libraries_to_take = 100
-    shuffle(LIBRARIES)
-    shuffle(BOOKS)
-    LIBRARIES = LIBRARIES[:libraries_to_take]
-    BOOKS = BOOKS[:books_to_take]
-
 def get_all_books():
     '''
         Get the list of all books available (i.e. BOOKS before we
