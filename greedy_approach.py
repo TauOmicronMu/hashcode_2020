@@ -1,6 +1,8 @@
 from hashcode_shared import *
 
-FILEPATH = "datasets/a_example.txt"
+from random import shuffle
+
+FILEPATH = "datasets/e_so_many_books.txt"
 
 NUM_DAYS = 0  
 NUM_BOOKS = 0
@@ -14,6 +16,7 @@ def setup():
     Loads the data from the inital file (FILEPATH)
     '''
     global NUM_DAYS, NUM_BOOKS, NUM_LIBRARIES
+    global BOOKS, LIBRARIES
 
     with open(FILEPATH, 'r') as f:
         #  Load the number of days, libraries, and books.
@@ -52,6 +55,12 @@ def setup():
             library = Library(i//2, library_books, throughput, signup_time)
             LIBRARIES.append(library)
 
+    books_to_take = 5000
+    libraries_to_take = 100
+    shuffle(LIBRARIES)
+    shuffle(BOOKS)
+    LIBRARIES = LIBRARIES[:libraries_to_take]
+    BOOKS = BOOKS[:books_to_take]
 
 def get_all_books():
     '''
@@ -97,8 +106,8 @@ def greedy_schedule():
     for d in range(NUM_DAYS):
         print("[SCHEDULING] DAY {}".format(d))
 
-        #  If there are no more libraries, quit
-        if len(LIBRARIES) == 0:
+        #  If there are no more librariesi or books, quit
+        if len(LIBRARIES) == 0 or len(BOOKS) == 0:
             break
 
         #  If no more libraries can be scheduled, we're done.
