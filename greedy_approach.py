@@ -1,7 +1,8 @@
 from hashcode_shared import *
 
-# FILEPATH = "datasets/a_example.txt"
+from numba import jit
 
+FILEPATH = "datasets/a_example.txt"
 
 NUM_DAYS = 0  
 NUM_BOOKS = 0
@@ -50,7 +51,7 @@ def setup():
             for j in split_line_i_plus_1:
                 library_books.append(BOOKS[j])
 
-            library = Library(i, library_books, throughput, signup_time)
+            library = Library(i//2, library_books, throughput, signup_time)
             LIBRARIES.append(library)
 
 
@@ -86,7 +87,6 @@ def heuristic(days_left, library):
     score = sum(chosen_books_scores)
 
     return (chosen_books, score)
-
 
 def greedy_schedule(): 
     global BOOKS
