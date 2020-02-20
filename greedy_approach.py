@@ -1,4 +1,4 @@
-import hashcode_shared
+from hashcode_shared import *
 
 FILEPATH = "datasets/f_libraries_of_the_world.txt"
 
