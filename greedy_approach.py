@@ -106,8 +106,8 @@ def greedy_schedule():
     for d in range(NUM_DAYS):
         print("[SCHEDULING] DAY {}".format(d))
 
-        #  If there are no more librariesi or books, quit
-        if len(LIBRARIES) == 0 or len(BOOKS) == 0:
+        #  If there are no more libraries, quit
+        if len(LIBRARIES) == 0:
             break
 
         #  If no more libraries can be scheduled, we're done.
@@ -137,6 +137,9 @@ def greedy_schedule():
 
         #  Remove the chosen Library from LIBRARIES
         LIBRARIES.remove(top_library)
+
+        #  Elapse the correct number of days...
+        d += top_library.signup_time
 
     return zip(signup_schedule, scanning_schedule)  
 
