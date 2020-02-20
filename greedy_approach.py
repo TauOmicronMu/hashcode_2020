@@ -19,7 +19,7 @@ def setup():
         split_line_1 = line_1.split(" ") 
         NUM_BOOKS = split_line_1[0]
         NUM_LIBRARIES = split_line_1[1]
-        NUM_DAYS = split_line[2]
+        NUM_DAYS = split_line_1[2]
 
         #  Load in the Books
         line_2 = f.readline() 
