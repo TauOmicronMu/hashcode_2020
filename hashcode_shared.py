@@ -12,6 +12,9 @@ class Library:
         #  Order the books by score (decreasing) for ease of use.
         self.books.sort(key=lambda b: b.score, reverse=True)
 
+    def __str__(self):
+        return "LIBRARY({}, {}, {})".format(self.index, self.throughput, self.signup_time)
+
 class Book:
     '''
         Contains an index and score for a Book.
@@ -19,4 +22,7 @@ class Book:
     def __init__(self, index, score):
         self.index = index
         self.score = score
+
+    def __str__(self):
+        return "BOOK({},{})".format(self.index, self.score)
 
