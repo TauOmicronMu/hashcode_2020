@@ -1,10 +1,38 @@
+import hashcode_shared
 
-DAYS = 
+FILEPATH = "/datasets/f_libraries_of_the_world.txt"
+
+NUM_DAYS = 0  
+NUM_BOOKS = 0
+NUM_LIBRARIES = 0
+
 LIBRARIES = set()
 BOOKS = set()
 
 def setup(): 
-    pass
+'''
+    Loads the data from the inital file (FILEPATH)
+'''
+    with open(FILEPATH, 'r') as f:
+        #  Load the number of days, libraries, and books.
+        line_1 = f.readline()
+        split_line_1 = line_1.split(" ") 
+        NUM_BOOKS = split_line_1[0]
+        NUM_LIBRARIES = split_line_1[1]
+        NUM_DAYS = split_line[2]
+
+        #  Load in the Books
+        line_2 = f.readline() 
+        split_line_2 = line_2.split(" ")
+        for index, score in enumerate(split_line_2):
+            #  Create a Book object given the score, and the index
+            book = Book(index, score)
+            BOOKS.add(book)
+
+        #  Load in the Libraries
+        
+
+    return 
 
 
 def get_all_books():
@@ -37,26 +65,5 @@ def heuristic(days_left, library):
 
     return (chosen_books, score)
 
-class Library:
-'''
-    Contains an index, a set() of books, and the integer throughput and 
-    signup time for the Library.
-'''
-    def __init__(self, index, books, throughput, signup_time):
-        self.index = index
-        self.books = books
-        self.throughput = throughput
-        self.signup_time = signup_time
-
-        #  Order the books by score (decreasing) for ease of use.
-        self.books.sort(key=lambda b: b.score, reverse=True)
-
-class Book:
-'''
-    Contains an index and score for a Book.
-'''
-    def __init__(self, index, score):
-        self.index = index
-        self.score = score
-
-
+def schedule(): 
+    pass 
