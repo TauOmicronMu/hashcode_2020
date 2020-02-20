@@ -4,6 +4,7 @@ from random import shuffle
 
 FILEPATH = "datasets/b_read_on.txt"
 
+DAYS = 0
 NUM_DAYS = 0  
 NUM_BOOKS = 0
 NUM_LIBRARIES = 0
@@ -15,7 +16,7 @@ def setup():
     '''
     Loads the data from the inital file (FILEPATH)
     '''
-    global NUM_DAYS, NUM_BOOKS, NUM_LIBRARIES
+    global DAYS, NUM_DAYS, NUM_BOOKS, NUM_LIBRARIES
     global BOOKS, LIBRARIES
 
     with open(FILEPATH, 'r') as f:
@@ -25,6 +26,7 @@ def setup():
         NUM_BOOKS = int(split_line_1[0])
         NUM_LIBRARIES = int(split_line_1[1])
         NUM_DAYS = int(split_line_1[2])
+        DAYS = NUM_DAYS
 
         #  Load in the Books
         line_2 = f.readline() 
@@ -91,14 +93,14 @@ def heuristic(days_left, library):
 def greedy_schedule(): 
     global BOOKS
     global LIBRARIES
-    global NUM_DAYS
+    global DAYS, NUM_DAYS
 
     signup_schedule = [] 
     scanning_schedule = []
 
     #  Work through the days.
     for d in range(NUM_DAYS):
-        print("[SCHEDULING] DAY {}".format(d))
+        print("[SCHEDULING] DAY {}".format(DAYS - NUM_DAYS))
 
         #  If there are no more libraries, quit
         if len(LIBRARIES) == 0:
