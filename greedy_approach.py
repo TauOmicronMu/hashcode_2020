@@ -89,6 +89,7 @@ def greedy_schedule():
     #  Work through the days.
     for d in range(NUM_DAYS):
         #  Calculate the maximum scores for each Library
+        scores = [(l, heuristic(NUM_DAYS - d, l)) for l in LIBRARIES]
 
         #  Choose the Library (and corresponding set of Books) that generate
         #  the maximum score. 
