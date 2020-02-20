@@ -2,7 +2,7 @@ from hashcode_shared import *
 
 from random import shuffle
 
-FILEPATH = "datasets/e_so_many_books.txt"
+FILEPATH = "datasets/b_read_on.txt"
 
 NUM_DAYS = 0  
 NUM_BOOKS = 0
@@ -55,7 +55,7 @@ def setup():
             library = Library(i//2, library_books, throughput, signup_time)
             LIBRARIES.append(library)
 
-    books_to_take = 5000
+    books_to_take = 20000
     libraries_to_take = 100
     shuffle(LIBRARIES)
     shuffle(BOOKS)
