@@ -10,9 +10,9 @@ LIBRARIES = set()
 BOOKS = set()
 
 def setup(): 
-'''
+    '''
     Loads the data from the inital file (FILEPATH)
-'''
+    '''
     with open(FILEPATH, 'r') as f:
         #  Load the number of days, libraries, and books.
         line_1 = f.readline()
@@ -30,16 +30,32 @@ def setup():
             BOOKS.add(book)
 
         #  Load in the Libraries
-        
+        for i in range(start=0, stop=NUM_LIBRARIES * 2, step=2):
+            #  line i contains => #books  signup_time  throughput 
+            line_i = f.readline() 
+            split_line_i = line_i.split(" ")
+            signup_time = split_line_i[1]
+            throughput = split_line_i[2]
 
-    return 
+
+            #  line i+1 contains list of books (space separated)
+            library_books = set()
+            line_i_plus_1 = f.readline()
+            split_line_i_plus_1 = line_i_plus_1.split(" ")
+
+            #  Put all of the Books into the Library's set
+            for j in split_line_i_plus_1:
+                library_books.add(BOOKS[j])
+
+            library = Library(i, library_books, throughput, signup_time)
+            LIBRARY.add(library)
 
 
 def get_all_books():
-'''
-    Get the set of all books available (i.e. BOOKS before we
-    cut it up).
-'''
+    '''
+        Get the set of all books available (i.e. BOOKS before we
+        cut it up).
+    '''
     full_set = set() 
     book_sets = {l.books for l in LIBRARIES}
     for book_set in book_sets:
@@ -48,10 +64,10 @@ def get_all_books():
     return full_set
 
 def heuristic(days_left, library):
-'''
-    Calculates the maximum score a library will obtain with
-    some number of days left
-'''
+    '''
+        Calculates the maximum score a library will obtain with
+        some number of days left
+    '''
     #  We have this much less time overall
     days_left -= library.signup_time     
 
@@ -67,3 +83,12 @@ def heuristic(days_left, library):
 
 def schedule(): 
     pass 
+
+
+if __name__ == "__main__":
+    setup() 
+    print(NUM_BOOKS)
+    print(NUM_LIBRARIES)
+    print(NUM_DAYS)
+    print(BOOKS)
+    print(LIBRARIES)

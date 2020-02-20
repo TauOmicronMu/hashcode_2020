@@ -1,8 +1,8 @@
 class Library:
-'''
-    Contains an index, a set() of books, and the integer throughput and 
-    signup time for the Library.
-'''
+    '''
+        Contains an index, a set() of books, and the integer throughput and 
+        signup time for the Library.
+    '''
     def __init__(self, index, books, throughput, signup_time):
         self.index = index
         self.books = books
@@ -13,9 +13,9 @@ class Library:
         self.books.sort(key=lambda b: b.score, reverse=True)
 
 class Book:
-'''
-    Contains an index and score for a Book.
-'''
+    '''
+        Contains an index and score for a Book.
+    '''
     def __init__(self, index, score):
         self.index = index
         self.score = score
