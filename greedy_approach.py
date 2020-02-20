@@ -1,7 +1,5 @@
 from hashcode_shared import *
 
-from numba import jit
-
 FILEPATH = "datasets/a_example.txt"
 
 NUM_DAYS = 0  
