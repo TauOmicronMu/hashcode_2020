@@ -91,6 +91,7 @@ def heuristic(days_left, library):
 def greedy_schedule(): 
     global BOOKS
     global LIBRARIES
+    global NUM_DAYS
 
     signup_schedule = [] 
     scanning_schedule = []
@@ -132,7 +133,7 @@ def greedy_schedule():
         LIBRARIES.remove(top_library)
 
         #  Elapse the correct number of days...
-        d += top_library.signup_time
+        NUM_DAYS -= top_library.signup_time
 
     return zip(signup_schedule, scanning_schedule)  
 
