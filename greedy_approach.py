@@ -81,17 +81,34 @@ def heuristic(days_left, library):
 
     return (chosen_books, score)
 
-def schedule(): 
-    pass 
 
+def greedy_schedule(): 
+    signup_schedule = [] 
+    scanning_schedule = []
+
+    #  Work through the days.
+    for d in range(NUM_DAYS):
+        #  Calculate the maximum scores for each Library
+
+        #  Choose the Library (and corresponding set of Books) that generate
+        #  the maximum score. 
+
+        #  Add the best library to the signup_schedule
+
+        #  Add the corresponding books to the scanning_schedule
+
+        #  Remove the chosen Books from BOOKS
+
+        #  Remove the chosen Library from LIBRARIES
+        
+
+    return zip(signup_schedule, scanning_schedule)  
+
+
+def output():
+    pass
 
 if __name__ == "__main__":
     setup() 
-    print(NUM_BOOKS)
-    print(NUM_LIBRARIES)
-    print(NUM_DAYS)
-    for b in BOOKS:
-        print(b)
-    for l in LIBRARIES:
-        print(l)
-
+    schedule = greedy_schedule()
+    output() 
